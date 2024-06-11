@@ -1,9 +1,21 @@
 import { Box, Button } from "@yamada-ui/react";
 
-export const LoginButton = () => {
+type buttonProps = {
+    colorScheme: string;
+    padding: string;
+    margin: string;
+};
+
+export const LoginButton = (props: buttonProps) => {
+    const { colorScheme, padding, margin } = props;
     return (
         <Box>
-            <Button colorScheme="primary" variant="outline">
+            <Button
+                colorScheme={colorScheme}
+                variant="outline"
+                padding={padding}
+                margin={margin}
+            >
                 Log In
             </Button>
         </Box>
