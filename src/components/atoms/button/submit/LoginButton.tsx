@@ -6,7 +6,7 @@ type buttonProps = {
     margin: string;
 };
 
-export const LoginButton = (props: buttonProps) => {
+export const LinkToLoginButton = (props: buttonProps) => {
     const { colorScheme, padding, margin } = props;
     return (
         <Box>

@@ -4,11 +4,10 @@ type buttonProps = {
     colorScheme: string;
     padding: string;
     margin: string;
-    buttonText: string;
 };
 
-export const SigninButton = (props: buttonProps) => {
-    const { colorScheme, padding, margin, buttonText } = props;
+export const LinkToLoginButton = (props: buttonProps) => {
+    const { colorScheme, padding, margin } = props;
     return (
         <Box>
             <Button
@@ -17,7 +16,7 @@ export const SigninButton = (props: buttonProps) => {
                 padding={padding}
                 margin={margin}
             >
-                {buttonText}
+                Log In
             </Button>
         </Box>
     );

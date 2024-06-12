@@ -1,25 +1,27 @@
-import { Box, Flex, Grid, Image } from "@yamada-ui/react";
+import { Box, Center, Flex, Grid, Image } from "@yamada-ui/react";
 import { TopButton } from "../molecules/TopButton";
 import { Toptext } from "../molecules/Toptext";
-import { SigninButton } from "../atoms/button/SigninButton";
+import { LinkToSigninButton } from "../atoms/button/transition/LinkToSigninButton";
 
 export const SigninArea = () => {
     return (
         <>
-            <Grid></Grid>
-            <Image src="./images/logo_yellow.png" />
-            <Flex alignItems={`center`} justifyContent={`center`}>
+            <Center>
+                <Image src="./images/logo_yellow.png" size="xl" />
+            </Center>
+
+            <Center>
                 <Toptext />
-            </Flex>
+            </Center>
 
-            <Toptext />
-
-            <SigninButton
-                colorScheme="amber"
-                padding=""
-                margin=""
-                buttonText="さっそく使ってみる"
-            />
+            <Center>
+                <LinkToSigninButton
+                    colorScheme="amber"
+                    padding=""
+                    margin=""
+                    buttonText="さっそく使ってみる"
+                />
+            </Center>
         </>
     );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginButton } from "../atoms/button/LoginButton";
+import { LinkToLoginButton } from "../atoms/button/transition/LinkToLoginButton";
 import { HeaderContent } from "../molecules/HeaderContent";
 import { Flex } from "@yamada-ui/react";
 
@@ -14,7 +14,11 @@ export const Header = () => {
                 alignItems="center"
             >
                 <HeaderContent />
-                <LoginButton colorScheme="primary" padding="" margin="lg" />
+                <LinkToLoginButton
+                    colorScheme="primary"
+                    padding=""
+                    margin="lg"
+                />
             </Flex>
         </>
     );

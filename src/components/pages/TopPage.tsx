@@ -15,11 +15,7 @@ export const TopPage = () => {
                     gap="md"
                 >
                     <GridItem colSpan={1} rowStart={1}>
-                        <Grid templateRows="repeat(3, 3fr)">
-                            <GridItem rowStart={1}>
-                                <SigninArea />
-                            </GridItem>
-                        </Grid>
+                        <SigninArea />
                     </GridItem>
                     <GridItem colSpan={1} rowStart={1}>
                         <Image src="./images/image1.png" alt="aaa" size="4xl" />
