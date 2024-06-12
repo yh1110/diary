@@ -1,7 +1,7 @@
 import { Flex, Grid, GridItem, Image } from "@yamada-ui/react";
 import { ToggleModeButton } from "../atoms/button/ToggleModeButton";
 import { TopButton } from "../molecules/TopButton";
-import { LoginArea } from "../organisms/LoginArea";
+import { SigninArea } from "../organisms/SigninArea";
 import { DefaultLayout } from "../templetes/DefaultLayout";
 
 export const TopPage = () => {
@@ -16,8 +16,8 @@ export const TopPage = () => {
                 >
                     <GridItem colSpan={1} rowStart={1}>
                         <Grid templateRows="repeat(3, 3fr)">
-                            <GridItem rowStart={2}>
-                                <LoginArea />
+                            <GridItem rowStart={1}>
+                                <SigninArea />
                             </GridItem>
                         </Grid>
                     </GridItem>
@@ -29,7 +29,7 @@ export const TopPage = () => {
 
             <ToggleModeButton />
 
-            <Grid
+            {/* <Grid
                 w="full"
                 templateColumns="repeat(4, 1fr)"
                 templateRows="repeat(3, 1fr)"
@@ -71,7 +71,7 @@ export const TopPage = () => {
                     rounded="md"
                     bg="danger"
                 />
-            </Grid>
+            </Grid> */}
             {/* <img
                 src="https://i.pinimg.com/originals/12/85/53/128553a8e81cc6e7cd1e6f38c06eeec2.jpg"
                 alt="aaa"

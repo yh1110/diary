@@ -8,27 +8,28 @@ import {
     defaultConfig,
 } from "@yamada-ui/react";
 
-const injectColorModeScript = () => {
-    const scriptContent = getColorModeScript({
-        initialColorMode: defaultConfig.initialColorMode,
-    });
+// const injectColorModeScript = () => {
+//     const scriptContent = getColorModeScript({
+//         initialColorMode: defaultConfig.initialColorMode,
+//     });
 
-    console.log(defaultConfig.initialColorMode);
+//     console.log(defaultConfig.initialColorMode);
 
-    const script = document.createElement("script");
+//     const script = document.createElement("script");
 
-    script.textContent = scriptContent;
+//     script.textContent = scriptContent;
 
-    document.head.appendChild(script);
-};
+//     document.head.appendChild(script);
+// };
 
-injectColorModeScript();
+// injectColorModeScript();
 
 const rootElement = document.getElementById("root")!;
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
-    <UIProvider theme={customTheme}>
+    // <UIProvider theme={customTheme}>
+    <UIProvider>
         <App />
     </UIProvider>
 );

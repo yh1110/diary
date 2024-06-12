@@ -4,11 +4,12 @@ import { MainIcon } from "../atoms/icon/MainIcon";
 
 export const HeaderContent = () => {
     return (
-        <div>
+        <>
             <Flex alignItems="center" gap="6">
                 <MainIcon />
+                {/* #TODO Text->link to */}
                 <Text>About us</Text>
             </Flex>
-        </div>
+        </>
     );
 };
