@@ -1,19 +1,20 @@
+import { Container, Heading } from "@yamada-ui/react";
 import { Header } from "../organisms/Header";
+import { ToggleModeButton } from "../atoms/button/ToggleModeButton";
 
-const inputArea = [
-    { type: "name", placeholder: "ユーザーネーム" },
-    { type: "email", placeholder: "メールアドレス" },
-    { type: "datetime-local", placeholder: "生年月日" },
-    { type: "password", placeholder: "パスワード" },
-    { type: "password", placeholder: "パスワード確認" },
-];
 export const InputForm = (props: any) => {
-    const { children } = props;
+    const { children, title } = props;
 
     return (
         <>
             <Header isVisibleLoginButton="hidden" />
-            {children}
+            <ToggleModeButton />
+            <Container centerContent>
+                <Heading marginTop="xl" marginBottom="sm">
+                    {title}
+                </Heading>
+                {children}
+            </Container>
         </>
     );
 };

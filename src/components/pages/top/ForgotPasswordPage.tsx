@@ -4,17 +4,18 @@ import { InputBase } from "../../atoms/input/InputBase";
 import { useCallback } from "react";
 import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
 import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
+import { Text } from "@yamada-ui/react";
 
-export const LoginPage = () => {
+export const ForgotPasswordPage = () => {
     console.log(InputAreaDataType);
     return (
-        <InputForm title="ログイン">
+        <InputForm title="パスワード再設定">
+            <Text fontSize="xs">
+                登録済みのメールアドレスを入力してください
+            </Text>
             {InputAreaDataType.map(
                 useCallback((form) => {
-                    if (
-                        form.data_name === "email" ||
-                        form.data_name === "password"
-                    ) {
+                    if (form.data_name === "email") {
                         return (
                             <InputBase
                                 key={form.id}
@@ -25,14 +26,15 @@ export const LoginPage = () => {
                     }
                 }, [])
             )}
-            <SubmitBaseButton buttonText="ログイン" />
+            <Text fontSize="0.7rem" marginTop="-1.25rem" color="neutral.500">
+                ご登録されているメールアドレスに認証メールをお送りします
+            </Text>
 
+            <SubmitBaseButton buttonText="送信" />
             <LinkToFormButtonBase
-                link="/forgot-password"
-                buttonText="パスワードを忘れた方はこちら"
+                link="/login"
+                buttonText="ログイン画面へ戻る"
             />
-
-            <LinkToFormButtonBase link="/signin" buttonText="新規登録" />
         </InputForm>
     );
 };

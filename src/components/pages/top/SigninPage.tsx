@@ -1,78 +1,30 @@
-import { Flex, Grid, GridItem, Image } from "@yamada-ui/react";
-import { ToggleModeButton } from "../../atoms/button/ToggleModeButton";
-import { TopButton } from "../../molecules/TopButton";
-import { SigninArea } from "../../organisms/SigninArea";
-import { DefaultLayout } from "../../templetes/DefaultLayout";
 import { InputForm } from "../../templetes/InputForm";
+import { InputAreaDataType } from "../../api/InputAreaDataType";
+import { InputBase } from "../../atoms/input/InputBase";
+import { useCallback } from "react";
+import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
+import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
 
 export const SigninPage = () => {
+    console.log(InputAreaDataType);
     return (
-        <>
-            <InputForm>
-                <Grid
-                    w="full"
-                    templateColumns="repeat(2, 1fr)"
-                    templateRows="repeat(3, 1fr)"
-                    gap="md"
-                >
-                    <GridItem colSpan={1} rowStart={1}>
-                        <SigninArea />
-                    </GridItem>
-                    <GridItem colSpan={1} rowStart={1}>
-                        <Image src="./images/image1.png" alt="aaa" size="4xl" />
-                    </GridItem>
-                </Grid>
-            </InputForm>
-
-            <ToggleModeButton />
-
-            {/* <Grid
-                w="full"
-                templateColumns="repeat(4, 1fr)"
-                templateRows="repeat(3, 1fr)"
-                gap="md"
-            >
-                <GridItem
-                    colSpan={2}
-                    w="full"
-                    minH="4xs"
-                    rounded="md"
-                    bg="primary"
-                />
-
-                <GridItem
-                    colSpan={2}
-                    rowSpan={3}
-                    w="full"
-                    minH="4xs"
-                    rounded="md"
-                    bg="secondary"
-                />
-
-                <GridItem
-                    rowStart={2}
-                    rowEnd={4}
-                    w="full"
-                    minH="4xs"
-                    rounded="md"
-                    bg="warning"
-                />
-
-                <GridItem
-                    colStart={2}
-                    colEnd={3}
-                    rowStart={2}
-                    rowEnd={4}
-                    w="full"
-                    minH="4xs"
-                    rounded="md"
-                    bg="danger"
-                />
-            </Grid> */}
-            {/* <img
-                src="https://i.pinimg.com/originals/12/85/53/128553a8e81cc6e7cd1e6f38c06eeec2.jpg"
-                alt="aaa"
-            /> */}
-        </>
+        <InputForm title="新規登録">
+            {InputAreaDataType.map(
+                useCallback((form) => {
+                    return (
+                        <InputBase
+                            key={form.id}
+                            placeholder={form.placeholder}
+                            type={form.input_type}
+                        />
+                    );
+                }, [])
+            )}
+            <SubmitBaseButton buttonText="入力を完了する" />
+            <LinkToFormButtonBase
+                link="/login"
+                buttonText="アカウントをお持ちの方はこちら"
+            />
+        </InputForm>
     );
 };

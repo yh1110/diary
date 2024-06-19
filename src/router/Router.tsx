@@ -1,6 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { TopPage } from "../components/pages/TopPage";
-import { TopPage, LoginPage, SigninPage } from "../components/pages/top/index";
+import {
+    TopPage,
+    LoginPage,
+    SigninPage,
+    ChangePasswordPage,
+    ForgotPasswordPage,
+} from "../components/pages/top/index";
 
 export const Router = () => {
     return (
@@ -9,8 +15,14 @@ export const Router = () => {
                 <Route path="/" index element={<TopPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signin" element={<SigninPage />} />
-                <Route path="/reset" element={<TopPage />} />
-                <Route path="/passwordreset" element={<TopPage />} />
+                <Route
+                    path="/forgot-password"
+                    element={<ForgotPasswordPage />}
+                />
+                <Route
+                    path="/change-password"
+                    element={<ChangePasswordPage />}
+                />
             </Routes>
         </BrowserRouter>
     );

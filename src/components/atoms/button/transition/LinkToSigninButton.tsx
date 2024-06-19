@@ -1,4 +1,5 @@
-import { Box, Button } from "@yamada-ui/react";
+import { Button } from "@yamada-ui/react";
+import { Link } from "react-router-dom";
 
 type buttonProps = {
     colorScheme: string;
@@ -10,7 +11,7 @@ type buttonProps = {
 export const LinkToSigninButton = (props: buttonProps) => {
     const { colorScheme, padding, margin, buttonText } = props;
     return (
-        <Box>
+        <Link to="/signin">
             <Button
                 colorScheme={colorScheme}
                 variant="outline"
@@ -19,6 +20,6 @@ export const LinkToSigninButton = (props: buttonProps) => {
             >
                 {buttonText}
             </Button>
-        </Box>
+        </Link>
     );
 };
