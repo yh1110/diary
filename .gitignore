@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+API設計書.md
 
 # testing
 /coverage

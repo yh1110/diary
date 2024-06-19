@@ -1,9 +1,9 @@
-import { TopPage } from "./components/pages/TopPage";
+import { Router } from "./router/Router";
 
 function App() {
     return (
         <div className="App">
-            <TopPage />
+            <Router />
         </div>
     );
 }

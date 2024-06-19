@@ -9,6 +9,7 @@
             "dom",
             "es2015"
         ],
+        "downlevelIteration": true,
         "jsx": "react-jsx"
     }
 }

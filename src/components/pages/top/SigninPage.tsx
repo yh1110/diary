@@ -1,13 +1,14 @@
 import { Flex, Grid, GridItem, Image } from "@yamada-ui/react";
-import { ToggleModeButton } from "../atoms/button/ToggleModeButton";
-import { TopButton } from "../molecules/TopButton";
-import { SigninArea } from "../organisms/SigninArea";
-import { DefaultLayout } from "../templetes/DefaultLayout";
+import { ToggleModeButton } from "../../atoms/button/ToggleModeButton";
+import { TopButton } from "../../molecules/TopButton";
+import { SigninArea } from "../../organisms/SigninArea";
+import { DefaultLayout } from "../../templetes/DefaultLayout";
+import { InputForm } from "../../templetes/InputForm";
 
-export const TopPage = () => {
+export const SigninPage = () => {
     return (
         <>
-            <DefaultLayout>
+            <InputForm>
                 <Grid
                     w="full"
                     templateColumns="repeat(2, 1fr)"
@@ -21,7 +22,7 @@ export const TopPage = () => {
                         <Image src="./images/image1.png" alt="aaa" size="4xl" />
                     </GridItem>
                 </Grid>
-            </DefaultLayout>
+            </InputForm>
 
             <ToggleModeButton />
 

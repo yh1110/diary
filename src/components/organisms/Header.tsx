@@ -2,8 +2,14 @@ import React from "react";
 import { LinkToLoginButton } from "../atoms/button/transition/LinkToLoginButton";
 import { HeaderContent } from "../molecules/HeaderContent";
 import { Flex } from "@yamada-ui/react";
+import { Link } from "react-router-dom";
 
-export const Header = () => {
+type headerProps = {
+    isVisibleLoginButton: string;
+};
+
+export const Header = (props: headerProps) => {
+    const { isVisibleLoginButton } = props;
     return (
         <>
             <Flex
@@ -14,11 +20,14 @@ export const Header = () => {
                 alignItems="center"
             >
                 <HeaderContent />
-                <LinkToLoginButton
-                    colorScheme="primary"
-                    padding=""
-                    margin="lg"
-                />
+                <Link to="/login">
+                    <LinkToLoginButton
+                        colorScheme="primary"
+                        padding=""
+                        margin="lg"
+                        isVisible={isVisibleLoginButton}
+                    />
+                </Link>
             </Flex>
         </>
     );

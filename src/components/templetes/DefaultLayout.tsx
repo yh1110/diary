@@ -4,7 +4,7 @@ export const DefaultLayout = (props: any) => {
     const { children } = props;
     return (
         <>
-            <Header />
+            <Header isVisibleLoginButton="visible" />
             {children}
         </>
     );
