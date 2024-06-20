@@ -1,19 +1,24 @@
 import { Input } from "@yamada-ui/react";
+import { FC, memo } from "react";
 
 type inputBase = {
     placeholder: string;
     type: string;
+    onChange: any;
 };
 
-export const InputBase = (props: inputBase) => {
-    const { placeholder, type } = props;
+export const InputBase: FC<inputBase> = memo((props) => {
+    console.log("inputBase");
+
+    const { placeholder, type, onChange } = props;
     return (
         <Input
             focusBorderColor="blue.200"
-            placeholder={placeholder}
-            type={type}
             size="md"
             w="22rem"
+            placeholder={placeholder}
+            type={type}
+            onChange={onChange}
         />
     );
-};
+});

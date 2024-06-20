@@ -1,4 +1,5 @@
 import { Box, Button } from "@yamada-ui/react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 type buttonProps = {
@@ -6,7 +7,9 @@ type buttonProps = {
     link: string;
 };
 
-export const LinkToFormButtonBase = (props: buttonProps) => {
+export const LinkToFormButtonBase: FC<buttonProps> = memo((props) => {
+    console.log("linkToFormButtonBase");
+
     const { link, buttonText } = props;
     return (
         <Link to={link}>
@@ -17,4 +20,4 @@ export const LinkToFormButtonBase = (props: buttonProps) => {
             </Box>
         </Link>
     );
-};
+});

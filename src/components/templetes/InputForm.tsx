@@ -1,8 +1,11 @@
 import { Container, Heading } from "@yamada-ui/react";
 import { Header } from "../organisms/Header";
 import { ToggleModeButton } from "../atoms/button/ToggleModeButton";
+import { FC } from "react";
 
-export const InputForm = (props: any) => {
+export const InputForm: FC<any> = (props) => {
+    console.log("inputForm");
+
     const { children, title } = props;
 
     return (

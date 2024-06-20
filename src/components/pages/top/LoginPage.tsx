@@ -1,31 +1,38 @@
 import { InputForm } from "../../templetes/InputForm";
 import { InputAreaDataType } from "../../api/InputAreaDataType";
 import { InputBase } from "../../atoms/input/InputBase";
-import { useCallback } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
 import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
+const Email = InputAreaDataType[1];
+const Password = InputAreaDataType[3];
 
 export const LoginPage = () => {
-    console.log(InputAreaDataType);
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
     return (
         <InputForm title="ログイン">
-            {InputAreaDataType.map(
-                useCallback((form) => {
-                    if (
-                        form.data_name === "email" ||
-                        form.data_name === "password"
-                    ) {
-                        return (
-                            <InputBase
-                                key={form.id}
-                                placeholder={form.placeholder}
-                                type={form.input_type}
-                            />
-                        );
-                    }
-                }, [])
-            )}
-            <SubmitBaseButton buttonText="ログイン" />
+            <InputBase
+                key={Email.id}
+                placeholder={Email.placeholder}
+                type={Email.input_type}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    setEmail(e.target.value);
+                }}
+            />
+            <InputBase
+                key={Password.id}
+                placeholder={Password.placeholder}
+                type={Password.input_type}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    setPassword(e.target.value);
+                }}
+            />
+            <SubmitBaseButton
+                buttonText="ログイン"
+                onClick={``}
+                disabled={email === "" || password === ""}
+            />
 
             <LinkToFormButtonBase
                 link="/forgot-password"
