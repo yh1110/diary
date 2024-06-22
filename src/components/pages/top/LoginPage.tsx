@@ -1,15 +1,30 @@
 import { InputForm } from "../../templetes/InputForm";
 import { InputAreaDataType } from "../../api/InputAreaDataType";
 import { InputBase } from "../../atoms/input/InputBase";
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useContext, useState } from "react";
 import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
 import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
+import { authRepository } from "../../../repositories/auth";
+import { SessionContext } from "../../../providers/SessionProvider";
+import { Navigate } from "react-router-dom";
 const Email = InputAreaDataType[1];
 const Password = InputAreaDataType[3];
 
 export const LoginPage = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const { currentUser, setCurrentUser } = useContext<any>(SessionContext);
+
+    const login = async () => {
+        console.log(email);
+        console.log(password);
+
+        const user = await authRepository.login(email, password);
+        setCurrentUser(user);
+    };
+
+    if (currentUser != null) return <Navigate replace to="/home/diary" />;
+
     return (
         <InputForm title="ログイン">
             <InputBase
@@ -30,7 +45,7 @@ export const LoginPage = () => {
             />
             <SubmitBaseButton
                 buttonText="ログイン"
-                onClick={``}
+                onClick={login}
                 disabled={email === "" || password === ""}
             />
 

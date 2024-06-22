@@ -7,6 +7,7 @@ import {
     ChangePasswordPage,
     ForgotPasswordPage,
 } from "../components/pages/top/index";
+import { HomePage } from "../components/pages/app/HomePage";
 
 export const Router = () => {
     return (
@@ -15,14 +16,13 @@ export const Router = () => {
                 <Route path="/" index element={<TopPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signin" element={<SigninPage />} />
-                <Route
-                    path="/forgot-password"
-                    element={<ForgotPasswordPage />}
-                />
-                <Route
-                    path="/change-password"
-                    element={<ChangePasswordPage />}
-                />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/change-password" element={<ChangePasswordPage />} />
+                <Route path="/home">
+                    {/* /homeだけでいい？ */}
+                    <Route path="/home/diary" index element={<HomePage />} />
+                    <Route path="/home/emotion" element={<HomePage />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );

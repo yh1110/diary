@@ -8,7 +8,7 @@ export const HeaderContent = () => {
         <>
             <Flex alignItems="center" gap="6">
                 <Link to="/">
-                    <MainIcon />
+                    <MainIcon onClick={() => {}} />
                 </Link>
                 <Text>About us</Text>
             </Flex>

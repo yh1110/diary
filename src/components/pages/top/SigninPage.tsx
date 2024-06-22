@@ -3,8 +3,10 @@ import { InputAreaDataType } from "../../api/InputAreaDataType";
 import { InputBase } from "../../atoms/input/InputBase";
 import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
 import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useContext, useState } from "react";
 import { authRepository } from "../../../repositories/auth";
+import { SessionContext } from "../../../providers/SessionProvider";
+import { Navigate } from "react-router-dom";
 
 const User_name = InputAreaDataType[0];
 const Email = InputAreaDataType[1];
@@ -18,6 +20,7 @@ export const SigninPage = () => {
     const [birthdate, setBirthdate] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [passwordConfirmation, setPasswordConfirmation] = useState<string>("");
+    const { currentUser, setCurrentUser } = useContext<any>(SessionContext);
 
     const signin = async () => {
         console.log(password);
@@ -26,11 +29,14 @@ export const SigninPage = () => {
         if (password === passwordConfirmation) {
             const user = await authRepository.signup(userName, birthdate, email, password);
             window.alert("登録完了");
-            //setCurrentUser(user) 現在ログインしているユーザー情報更新
+            setCurrentUser(user); //現在ログインしているユーザー情報更新
         } else {
             window.alert("パスワードが一致しません");
         }
     };
+
+    console.log(currentUser);
+    if (currentUser != null) return <Navigate replace to="/home/diary" />;
 
     return (
         <InputForm title="新規登録">

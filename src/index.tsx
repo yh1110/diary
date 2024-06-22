@@ -2,11 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import customTheme from "./theme/index";
-import {
-    UIProvider,
-    getColorModeScript,
-    defaultConfig,
-} from "@yamada-ui/react";
+import { UIProvider, getColorModeScript, defaultConfig } from "@yamada-ui/react";
+import { SessionProvider } from "./providers/SessionProvider";
+import { Provider } from "jotai";
 
 // const injectColorModeScript = () => {
 //     const scriptContent = getColorModeScript({
@@ -29,7 +27,13 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
     // <UIProvider theme={customTheme}>
-    <UIProvider>
-        <App />
-    </UIProvider>
+    <>
+        <SessionProvider>
+            <Provider>
+                <UIProvider>
+                    <App />
+                </UIProvider>
+            </Provider>
+        </SessionProvider>
+    </>
 );
