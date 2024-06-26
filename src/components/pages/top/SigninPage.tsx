@@ -3,10 +3,11 @@ import { InputAreaDataType } from "../../api/InputAreaDataType";
 import { InputBase } from "../../atoms/input/InputBase";
 import { LinkToFormButtonBase } from "../../atoms/button/transition/LinkToFormButtonBase";
 import { SubmitBaseButton } from "../../atoms/button/submit/SubmitBaseButton";
-import { ChangeEvent, useCallback, useContext, useState } from "react";
+import { ChangeEvent, useCallback, useContext, useEffect, useState } from "react";
 import { authRepository } from "../../../repositories/auth";
 import { SessionContext } from "../../../providers/SessionProvider";
 import { Navigate } from "react-router-dom";
+import { LoadingPage } from "../LoadingPage";
 
 const User_name = InputAreaDataType[0];
 const Email = InputAreaDataType[1];
@@ -21,22 +22,41 @@ export const SigninPage = () => {
     const [password, setPassword] = useState<string>("");
     const [passwordConfirmation, setPasswordConfirmation] = useState<string>("");
     const { currentUser, setCurrentUser } = useContext<any>(SessionContext);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [navigate, setNavigate] = useState<boolean>(false);
+    const [newUser, setNewUser] = useState<any>();
 
     const signin = async () => {
-        console.log(password);
-        console.log(email);
-
         if (password === passwordConfirmation) {
             const user = await authRepository.signup(userName, birthdate, email, password);
             window.alert("登録完了");
+            setNewUser(user);
             setCurrentUser(user); //現在ログインしているユーザー情報更新
         } else {
             window.alert("パスワードが一致しません");
         }
     };
 
-    console.log(currentUser);
-    if (currentUser != null) return <Navigate replace to="/home/diary" />;
+    useEffect(() => {
+        const replacePath = async () => {
+            setLoading(true);
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+            setLoading(false);
+            setNavigate(true);
+        };
+
+        if (newUser != null) {
+            replacePath();
+        }
+    }, [newUser]);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
+
+    if (navigate) {
+        return <Navigate replace to="/home/diary" />;
+    }
 
     return (
         <InputForm title="新規登録">

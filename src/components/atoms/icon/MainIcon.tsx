@@ -19,7 +19,12 @@ export const MainIcon: FC<mainIconProps> = memo((props) => {
                     onClick={onClick}
                     cursor="pointer"
                 />
-                <Image src="./images/logo_black.png" size="16" onClick={onClick} cursor="pointer" />
+                <Image
+                    src="../../images/logo_black.png" //相対パス
+                    size="16"
+                    onClick={onClick}
+                    cursor="pointer"
+                />
             </Flex>
         </>
     );
