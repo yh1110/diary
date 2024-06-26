@@ -7,10 +7,17 @@ import { DiaryPage } from "../pages/app/DiaryPage";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { currentHomeComponentAtom } from "../../store/store";
+import { SettingContents } from "../molecules/SettingContents";
 
-export const HeaderForHome = () => {
+type UIValue<T> = T | undefined;
+type HeaderForHomeProps = {
+    //#TODO 他のヘッダーでも使用しているので、型情報まとめとく必要あり
+    isVisibleNavigation: UIValue<"visible" | "hidden" | "collapse" | "inherit"> | undefined;
+};
+
+export const HeaderForHome: FC<HeaderForHomeProps> = (props) => {
+    const { isVisibleNavigation } = props;
     const [currentHomeComponent, setCurrentHomeComponent] = useAtom(currentHomeComponentAtom);
-    // const { onChangeComponent } = props;
     const [index, setIndex] = useState(0);
 
     const onClickNavigation = () => {
@@ -44,6 +51,7 @@ export const HeaderForHome = () => {
                             align="center"
                             colorScheme="gray"
                             isFitted
+                            visibility={isVisibleNavigation}
                         >
                             <Tab bg="amber.500">
                                 <MainNavigation
@@ -60,7 +68,7 @@ export const HeaderForHome = () => {
                         </Tabs>
                     </GridItem>
                     <GridItem colSpan={1}>
-                        <UserLoginInfoIcon />
+                        <SettingContents />
                     </GridItem>
                 </Grid>
             </Box>

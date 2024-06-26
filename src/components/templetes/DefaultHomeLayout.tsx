@@ -1,10 +1,15 @@
+import { FC, ReactNode } from "react";
 import { HeaderForHome } from "../organisms/HeaderForHome";
 
-export const DefaultHomeLayout = (props: any) => {
-    const { children, onChangeComponent } = props;
+type DefaultHomeLayoutProps = {
+    children: ReactNode;
+};
+
+export const DefaultHomeLayout: FC<DefaultHomeLayoutProps> = (props) => {
+    const { children } = props;
     return (
         <>
-            <HeaderForHome />
+            <HeaderForHome isVisibleNavigation="visible" />
             {children}
         </>
     );

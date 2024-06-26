@@ -6,13 +6,11 @@ export const UserLoginInfoIcon = memo(() => {
     console.log("userLoginIcon");
 
     return (
-        <Box float="right" marginRight="xl" paddingTop="md">
-            <Flex>
-                <LoginIcon />
-                <Center>
-                    <Text paddingLeft="md">username</Text>
-                </Center>
-            </Flex>
-        </Box>
+        <Flex>
+            <LoginIcon />
+            <Center>
+                <Text paddingLeft="md">username</Text>
+            </Center>
+        </Flex>
     );
 });

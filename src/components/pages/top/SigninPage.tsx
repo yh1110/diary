@@ -40,7 +40,7 @@ export const SigninPage = () => {
     useEffect(() => {
         const replacePath = async () => {
             setLoading(true);
-            await new Promise((resolve) => setTimeout(resolve, 1500));
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             setLoading(false);
             setNavigate(true);
         };

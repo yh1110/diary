@@ -25,7 +25,7 @@ export const HomePage = (props: any) => {
 
     return (
         <>
-            <DefaultHomeLayout />
+            <DefaultHomeLayout children />
             {renderComponent()}
         </>
     );

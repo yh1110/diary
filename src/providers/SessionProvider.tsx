@@ -23,7 +23,6 @@ const SessionProvider = (props: any) => {
 
     if (isLoading) return <LoadingPage />;
 
-    //   const contextName = "ネオン";
     return (
         <SessionContext.Provider value={{ currentUser, setCurrentUser }}>
             {children}

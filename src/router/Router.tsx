@@ -8,6 +8,7 @@ import {
     ForgotPasswordPage,
 } from "../components/pages/top/index";
 import { HomePage } from "../components/pages/app/HomePage";
+import { ProfilePage } from "../components/pages/app/ProfilePage";
 
 export const Router = () => {
     return (
@@ -22,6 +23,9 @@ export const Router = () => {
                     {/* /homeだけでいい？ */}
                     <Route path="/home/diary" index element={<HomePage />} />
                     <Route path="/home/emotion" element={<HomePage />} />
+                    <Route path="/home/profile" element={<ProfilePage />}>
+                        <Route path="/home/profile/settig" />
+                    </Route>
                 </Route>
             </Routes>
         </BrowserRouter>
