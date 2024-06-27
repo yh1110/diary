@@ -1,14 +1,4 @@
-import {
-    Box,
-    Button,
-    Center,
-    Flex,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader,
-    Text,
-} from "@yamada-ui/react";
+import { Box, Button, Center, Flex, Modal, ModalHeader, Text } from "@yamada-ui/react";
 import React from "react";
 
 type CoordinateSNSProps = {

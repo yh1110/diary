@@ -1,23 +1,44 @@
 import { Card, CardBody, CardHeader, Text } from "@yamada-ui/react";
-import React from "react";
+import { useAtom } from "jotai";
+import React, { FC } from "react";
+import { postContents } from "../../../store/store";
 
-export const SideMenuContentsBase = () => {
+type postContent = {
+    date: string;
+    content: string;
+};
+
+type SideMenuContentsBaseProps = {
+    month: string;
+    post_data: postContent[];
+};
+
+export const SideMenuContentsBase: FC<SideMenuContentsBaseProps> = ({ month, post_data }) => {
+    const [, setPostContents] = useAtom(postContents);
+
+    const handleClick = (postContent: postContent) => {
+        setPostContents({ month, post_data: [postContent] });
+    };
+    console.log("SideMenuContentsBase");
+
     return (
         <>
-            <Card variant="outline" colorScheme="gray" size="sm" marginBottom="0.5rem">
-                {/* #TODO */}
-                <CardHeader>4/12</CardHeader>
-                <CardBody>
-                    <Text wordBreak="break-all">texttexttexttexttexttexttexttexttexttext</Text>
-                </CardBody>
-            </Card>
-            <Card variant="outline" colorScheme="gray" size="sm" marginBottom="0.5rem">
-                {/* #TODO */}
-                <CardHeader>4/12</CardHeader>
-                <CardBody>
-                    <Text wordBreak="break-all">texttexttexttexttexttexttexttexttexttext</Text>
-                </CardBody>
-            </Card>
+            {post_data.map((postContent, index) => (
+                <Card
+                    key={index}
+                    variant="outline"
+                    colorScheme="gray"
+                    size="sm"
+                    marginBottom="0.5rem"
+                    onClick={() => handleClick(postContent)}
+                    cursor="pointer"
+                >
+                    <CardHeader>{postContent.date}</CardHeader>
+                    <CardBody>
+                        <Text wordBreak="break-all">{postContent.content}</Text>
+                    </CardBody>
+                </Card>
+            ))}
         </>
     );
 };
