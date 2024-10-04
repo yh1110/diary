@@ -2,6 +2,7 @@ type postContent = {
     date: string;
     content: string;
 };
+
 export const mockData: { [key: string]: postContent[] } = {
     "4月": [
         { date: "4/12", content: "texttexttexttexttexttexttexttexttexttext" },

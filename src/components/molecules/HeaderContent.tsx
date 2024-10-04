@@ -1,5 +1,4 @@
 import { Flex, Text } from "@yamada-ui/react";
-import React from "react";
 import { MainIcon } from "../atoms/icon/MainIcon";
 import { Link } from "react-router-dom";
 

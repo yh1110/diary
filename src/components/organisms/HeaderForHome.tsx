@@ -1,10 +1,7 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { MainIcon } from "../atoms/icon/MainIcon";
-import { Box, Center, Flex, Grid, GridItem, Tab, TabPanel, Tabs } from "@yamada-ui/react";
-import { UserLoginInfoIcon } from "../molecules/UserLoginInfoIcon";
+import { Box, Grid, GridItem, Tab, Tabs } from "@yamada-ui/react";
 import { MainNavigation } from "../atoms/button/navigation/MainNavigation";
-import { DiaryPage } from "../pages/app/DiaryPage";
-import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { currentHomeComponentAtom } from "../../store/store";
 import { SettingContents } from "../molecules/SettingContents";
@@ -17,7 +14,7 @@ type HeaderForHomeProps = {
 
 export const HeaderForHome: FC<HeaderForHomeProps> = (props) => {
     const { isVisibleNavigation } = props;
-    const [currentHomeComponent, setCurrentHomeComponent] = useAtom(currentHomeComponentAtom);
+    const [, setCurrentHomeComponent] = useAtom(currentHomeComponentAtom);
     const [index, setIndex] = useState(0);
 
     const onClickNavigation = () => {

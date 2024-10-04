@@ -1,5 +1,5 @@
-import { Accordion, AccordionItem, Box, Text } from "@yamada-ui/react";
-import React, { FC, memo } from "react";
+import { Accordion, AccordionItem, Box } from "@yamada-ui/react";
+import { FC, memo } from "react";
 import { SideMenuContentsBase } from "../atoms/card/SideMenuContentsBase";
 import { mockData } from "../api/mockData";
 

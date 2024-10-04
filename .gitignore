@@ -11,6 +11,7 @@ API設計書.md
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store

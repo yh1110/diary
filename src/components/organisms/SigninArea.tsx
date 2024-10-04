@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Grid, Image } from "@yamada-ui/react";
+import { Center, Image } from "@yamada-ui/react";
 import { Toptext } from "../molecules/Toptext";
 import { LinkToSigninButton } from "../atoms/button/transition/LinkToSigninButton";
 
